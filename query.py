@@ -23,13 +23,18 @@ init_app()
 # 1. What is the datatype of the returned value of
 # ``Brand.query.filter_by(name='Ford')``?
 
+""" A Flask_SQLAlchemy object that holds the information to execute a SQL
+    query in the database. """
 
 
 # 2. In your own words, what is an association table, and what type of
 # relationship (many to one, many to many, one to one, etc.) does an
 # association table manage?
 
-
+""" An association table connects two tables that have a many-to-many
+    relationship. It doesn't hold any real data that we wish to view, its sole
+    purpose is to connect the two tables and create a center table for them to
+    connect. It has a many-to-one relationship with each of the two tables."""
 
 
 # -------------------------------------------------------------------
@@ -37,19 +42,19 @@ init_app()
 
 
 # Get the brand with the brand_id of ``ram``.
-q1 = None
+q1 = Brand.query.get('ram')
 
 # Get all models with the name ``Corvette`` and the brand_id ``che``.
-q2 = None
+q2 = Model.query.filter(Model.name == 'Corvette', Model.brand_id == 'che').all()
 
 # Get all models that are older than 1960.
-q3 = None
+q3 = Model.query.filter(Model.year > 1960).all()
 
 # Get all brands that were founded after 1920.
-q4 = None
+q4 = Brand.query.filter(Brand.founded > 1920).all()
 
 # Get all models with names that begin with ``Cor``.
-q5 = None
+q5 = Model.query.filter(Model.name.like('Cor%')).all()
 
 # Get all brands that were founded in 1903 and that are not yet discontinued.
 q6 = None
