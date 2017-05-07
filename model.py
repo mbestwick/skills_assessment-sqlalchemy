@@ -42,10 +42,9 @@ class Model(db.Model):
     brands = db.relationship('Brand', backref="models")
 
     def __repr__(self):
-        return "< Model brand_id: %s, name: %s, year: %s>" % (
-            self.brand_id,
-            self.name,
-            self.year)
+        return "< Model brand_id: %s, name: %s, year: %s>" % (self.brand_id,
+                                                              self.name,
+                                                              self.year)
 
 # End Part 1
 

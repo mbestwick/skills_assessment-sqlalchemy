@@ -48,7 +48,7 @@ q1 = Brand.query.get('ram')
 q2 = Model.query.filter(Model.name == 'Corvette', Model.brand_id == 'che').all()
 
 # Get all models that are older than 1960.
-q3 = Model.query.filter(Model.year > 1960).all()
+q3 = Model.query.filter(Model.year < 1960).all()
 
 # Get all brands that were founded after 1920.
 q4 = Brand.query.filter(Brand.founded > 1920).all()
